@@ -25,6 +25,7 @@
 
     <nav>
      <h2>admin.php</h2>
+     <a href="../006-logout.php" class="logout-btn" id="boton-logout">Cerrar Sesión</a>
     <?php
       // Ahora lo que quiero es un listado de las tablas en la base de datos
         $resultado = $conexion->query("

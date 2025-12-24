@@ -20,8 +20,23 @@
   $resultado = $conexion->query($sql);
 
   if ($fila = $resultado->fetch_assoc()) {	// Si es cierto que hay un resultado
-    $_SESSION['usuario'] = 'si';
-    header("Location: 005-exito.php");					// En ese caso vamos a la pagina de exito
+    $tipo = strtolower(trim($fila['tipo_de_usuario']));
+    $_SESSION['usuario'] = 'si'; 
+    var_dump($fila['tipo_de_usuario']);
+    switch($tipo){      // Dependiendo del tipo de usuario es redigirido a un sitio diferente
+      case 'admin':
+          header("Location: ./tipo_de_usuario/admin.php");
+          break;
+      case 'host':
+          header("Location: ./tipo_de_usuario/host.php");
+          break;
+      case 'usuario':
+          header("Location: ./tipo_de_usuario/usuario.php");
+          break; 
+      default:
+          header("Location: 005-exito.php");
+          break;                             
+    }
     exit();
   }else{																		// Si no hay ningun resultado
   	header("Location: 004-login.html");					// En ese caso volvemos al login
