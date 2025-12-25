@@ -6,6 +6,7 @@
     	body{display:flex;}
     	nav{background:#FF511C;padding:20px;gap:20px;display:flex;flex:1;flex-direction:column;height:max-content;}
     	nav a{background:#FFFFFF;color:#39D0BD;text-decoration:none;padding:10px;}
+    	a.logout-btn{color:#FFEAD4;border-radius:30px;}
     	main{padding:20px;flex:4;}
      table td{padding:10px;}
      table{border:2px solid #39D0BD;width:100%;}   
