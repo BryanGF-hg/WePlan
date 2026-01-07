@@ -21,6 +21,22 @@
   </head>
   <body>
     <?php
+    session_start();
+    if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] !== 'si') {
+    header("Location: 004-login.html");
+    exit();
+    }
+
+    // Verificar 2: ¿Es admin?
+    if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {
+        // No es admin - mostrar error
+        echo '<h1>Acceso Denegado</h1>';
+        echo '<p>Solo los administradores pueden acceder a esta página.</p>';
+        echo '<a href="../004-login.html">Volver al inicio</a>';
+        exit();
+    }
+    ?>
+    <?php
         $host = "localhost";$user = "usuario-weplan";$pass = "Usuarioweplan123$";$db   = "WePlanDB";$conexion = new mysqli($host, $user, $pass, $db);
     ?>
 

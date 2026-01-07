@@ -8,13 +8,9 @@
   
 	// Comprobacion exitosa pero mirando los datos que vienen del formulario en POST
   $sql = "
-  	SELECT 
-    *
-    FROM usuarios
-    WHERE
+  	SELECT * FROM usuarios WHERE
     correo_electronico = '".$_POST['correo_electronico']."'
-    AND
-    contrasenya = '".$_POST['contrasenya']."';
+    AND contrasenya = '".$_POST['contrasenya']."';
   ";
 	
   $resultado = $conexion->query($sql);
@@ -22,7 +18,9 @@
   if ($fila = $resultado->fetch_assoc()) {	// Si es cierto que hay un resultado
     $tipo = strtolower(trim($fila['tipo_de_usuario']));
     $_SESSION['usuario'] = 'si'; 
-    var_dump($fila['tipo_de_usuario']);
+    $_SESSION['tipo_usuario'] = $tipo;
+    $_SESSION['correo_usuario'] = $_POST['correo_electronico'];
+    
     switch($tipo){      // Dependiendo del tipo de usuario es redigirido a un sitio diferente
       case 'admin':
           header("Location: ./tipo_de_usuario/admin.php");
