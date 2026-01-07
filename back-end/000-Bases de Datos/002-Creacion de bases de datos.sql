@@ -2,7 +2,6 @@
 CREATE DATABASE WePlanDB;
 USE WePlanDB;
 
-
 CREATE TABLE usuarios (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
@@ -11,17 +10,31 @@ CREATE TABLE usuarios (
     direccion VARCHAR(255),
     correo_electronico VARCHAR(150) UNIQUE NOT NULL,
     pais VARCHAR(50),
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    contrasenya VARCHAR(255) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_de_usuario VARCHAR(50)
 );
 
 -- Registros de ejemplo
-INSERT INTO usuarios (nombre, apellidos, telefono, direccion, correo_electronico, pais) VALUES
-('María', 'García López', '+34 600 111 222', 'Calle Mayor 10, Madrid', 'maria.garcia@email.com', 'España'),
-('Carlos', 'Rodríguez Pérez', '+34 611 222 333', 'Av. Diagonal 25, Barcelona', 'carlos.rodriguez@email.com', 'España'),
-('Ana', 'Martínez Sánchez', '+34 622 333 444', 'Calle Gran Vía 45, Valencia', 'ana.martinez@email.com', 'España'),
-('David', 'Fernández Ruiz', '+34 633 444 555', 'Plaza España 3, Sevilla', 'david.fernandez@email.com', 'España'),
-('Laura', 'Gómez Díaz', '+34 644 555 666', 'Calle Sierpes 15, Sevilla', 'laura.gomez@email.com', 'España'),
-('Javier', 'Hernández Castro', '+34 655 666 777', 'Calle Preciados 8, Madrid', 'javier.hernandez@email.com', 'España');
+INSERT INTO usuarios (nombre, apellidos, telefono, direccion, correo_electronico, pais, contrasenya) VALUES
+('María', 'García López', '+34 600 111 222', 'Calle Mayor 10, Madrid', 'maria.garcia@email.com', 'España', '12345678'),
+('Carlos', 'Rodríguez Pérez', '+34 611 222 333', 'Av. Diagonal 25, Barcelona', 'carlos.rodriguez@email.com', 'España', '12345678'),
+('Ana', 'Martínez Sánchez', '+34 622 333 444', 'Calle Gran Vía 45, Valencia', 'ana.martinez@email.com', 'España', '12345678'),
+('David', 'Fernández Ruiz', '+34 633 444 555', 'Plaza España 3, Sevilla', 'david.fernandez@email.com', 'España', '12345678'),
+('Laura', 'Gómez Díaz', '+34 644 555 666', 'Calle Sierpes 15, Sevilla', 'laura.gomez@email.com', 'España', '12345678'),
+('Javier', 'Hernández Castro', '+34 655 666 777', 'Calle Preciados 8, Madrid', 'javier.hernandez@email.com', 'España', '12345678');
+
+UPDATE usuarios 
+SET TIPO_DE_USUARIO = 'admin'
+WHERE nombre IN ('María', 'Carlos');
+
+UPDATE usuarios 
+SET TIPO_DE_USUARIO = 'host'
+WHERE nombre IN ('Ana', 'David');
+
+UPDATE usuarios 
+SET TIPO_DE_USUARIO = 'usuario'
+WHERE nombre IN ('Laura', 'Javier');
 
 CREATE TABLE grupos (
     grupo_id INT PRIMARY KEY AUTO_INCREMENT,

@@ -8,7 +8,6 @@
 (6, 'Running'),
 (7, 'Ciclismo'),
 (8, 'Yoga'),
-(9, 'Volleyball'),
 
 -- Relajación (categoría_id = 2)
 (9, 'Café'),
@@ -18,8 +17,7 @@
 (13, 'Cine'),
 (14, 'Juegos de mesa'),
 (15, 'Picnic'),
-(16, 'Excurcion'),
-  
+
 -- Música (categoría_id = 3)
 (16, 'Conciertos'),
 (17, 'Karaoke'),
