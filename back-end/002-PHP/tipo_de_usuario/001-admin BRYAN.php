@@ -2,21 +2,21 @@
 <html lang="es">
 	<head>
   	<style>
-    	html,body{width:100%;height:100%;padding:0px;margin:0px;background:Aliceblue;}
+    	html,body{width:100%;height:100%;padding:0px;margin:0px;}
     	body{display:flex;}
-    	nav{background:BurlyWood;color:black;padding:20px;gap:20px;display:flex;flex:1;flex-direction:column;height:max-content;}
-    	nav a{background:#FFFFFF;color:black;text-decoration:none;padding:10px;}
+    	nav{background:#FF511C;padding:20px;gap:20px;display:flex;flex:1;flex-direction:column;height:max-content;}
+    	nav a{background:#FFFFFF;color:#39D0BD;text-decoration:none;padding:10px;}
     	main{padding:20px;flex:4;}
      table td{padding:10px;}
      table{border:2px solid #39D0BD;width:100%;}   
-     th{background:BurlyWood;color:black;padding:10px;}
+     th{background:#FF511C;color:white;padding:10px;}
      
-     #crear{	position:absolute;  bottom:20px;  right:20px;  background:burlywood;  color:black; 
+     #crear{	position:absolute;  bottom:20px;  right:20px;  background:#39D0BD;  color:#FF511C; 
 	      height:40px; border-radius:40px;
        text-align:center;  font-size:30px;  line-height:40px;  text-decoration:none;  font-weight:bold;}
-     .eliminar,.editar{	height:20px;  background:BlanchedAlmond;  border-radius:30px;  color:black;
+     .eliminar,.editar{	height:20px;  background:#39D0BD;  border-radius:30px;  color:#FF511C;
        line-height:20px;  text-decoration:none; text-align:center;  display:block;  }  
-     #botones{color:;border-radius:30px;display:flex;align-items:center;background:BlanchedAlmond;}
+     #botones{color:#FFEAD4;border-radius:30px;display:flex;align-items:center;background:#40e0d0;}
     </style>
   </head>
   <body>
