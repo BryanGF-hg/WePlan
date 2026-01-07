@@ -1,2 +1,202 @@
-nav,body{color:#a31c33;}
+body {
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Estilos para todos los divs */
+        .parent > div {
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 5px;
+            min-height: 80px;
+        }
+        
+        /* Div1 - Foto */
+        .div1 {
+            background-image: url('weplan-high-resolution-logo-grayscale.png');
+            background-size: cover;
+            background-position: center;
+            width: 50%;
+            height: 50px;
 
+        }
+
+        .div2 {
+            background-color: white;
+            color: #333;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-container {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .search-box:focus {
+            border-color: #2c3e50;
+            box-shadow: 0 0 5px rgba(116, 137, 151, 0.5);
+        }
+        .div2 {
+            grid-column: span 2;
+        }
+        .div3 {
+            grid-column-start: 4;
+            grid-column-end: 6;
+        }
+        
+        .boton {
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .boton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background-color: #f8f9fa;
+        }
+        
+        .boton:active {
+            transform: translateY(-1px);
+        }
+        
+        .icono {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+.div4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .titulo-inicio {
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 1px;
+            text-align: center;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .usuario-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .foto-usuario {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: Green; /* Color por defecto */
+            background-image: none; /* Sin imagen por defecto */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .foto-usuario:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .foto-usuario:active {
+            transform: scale(0.98);
+        }
+        
+        /* Estilo para cuando sí hay foto */
+        .con-foto {
+            background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop');
+        }
+
+.div5 {
+    grid-row-start: 3;
+}
+
+.div6 {
+    grid-row-start: 3;
+}
+
+.div7 {
+    grid-row-start: 3;
+}
+
+.div8 {
+    grid-row-start: 3;
+}
+
+.div9 {
+    grid-row-start: 3;
+}
+
+.div10 {
+    grid-column: span 2 / span 2;
+}
+
+.div11 {
+    grid-row-start: 5;
+}
+
+.div12 {
+    grid-row-start: 5;
+}
+
+.div13 {
+    grid-row-start: 5;
+}
+
+.div14 {
+    grid-row-start: 5;
+}
+
+.div15 {
+    grid-row-start: 5;
+}
