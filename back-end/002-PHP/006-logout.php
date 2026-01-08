@@ -9,6 +9,6 @@ session_unset();
 session_destroy();
 
 // Redirigir al login con mensaje
-header("Location: 004-login.html?logout=1&user=" . urlencode($nombre));
+header("Location: 004-login.php?mensaje='Has salido con exito'");
 exit();
 ?>
