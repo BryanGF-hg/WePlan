@@ -29,7 +29,7 @@
           header("Location: ./tipo_de_usuario/host.php");
           break;
       case 'usuario':
-          header("Location: ./tipo_de_usuario/usuario.php");
+          header("Location: .../Front-end/index.html");
           break; 
       default:
           header("Location: 005-exito.php");
