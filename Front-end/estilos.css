@@ -9,7 +9,7 @@ nav {width: 100%;background-color: #fff;}
 .boton:hover {transform: translateY(-3px);box-shadow: 0 4px 8px rgba(0,0,0,0.3);background-color: #f8f9fa;}
 .boton:active {transform: translateY(-1px);}
 .icono {font-size: 24px;color: #2c3e50;}
-.boton-usuario {width: 35px;height: 35px;border-radius: 50%;border: none;cursor: pointer;display: flex;align-items: center;justify-content: center;font-weight: bold;color: white;background-color: Green;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
+.boton-usuario {width: 65px;height: 65px;border-radius: 50%;font-size: 40px;border: none;cursor: pointer;display: flex;align-items: center;justify-content: center;font-weight: bold;color: white;background-color: Green;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
 .boton-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
 .div4 {display: flex;flex-direction: column;align-items: flex-start;padding: 10px;}
 .titulo-inicio {font-size: 18px;font-weight: bold;color: black;margin-bottom: 1px;padding-bottom: 10px;width: 100%;}
