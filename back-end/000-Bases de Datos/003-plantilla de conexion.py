@@ -2,13 +2,13 @@ import mysql.connector
 
 conexion = mysql.connector.connect(
     host="localhost",
-    user="clientes",
-    password="Clientes123$",
-    database="clientes"
+    user="usuario-weplan",
+    password="Usuarioweplan123$",
+    database="WePlanDB"
 )  
 
 cursor = conexion.cursor()
-cursor.execute("SELECT*FROM clientes;")
+cursor.execute("SELECT*FROM usuarios;")
 
 filas = cursor.fetchall()
 
