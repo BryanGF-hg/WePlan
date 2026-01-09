@@ -13,7 +13,7 @@ nav {width: 100%;background-color: #fff;}
 .boton-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
 .div4 {display: flex;flex-direction: column;align-items: flex-start;padding: 10px;}
 .titulo-inicio {font-size: 18px;font-weight: bold;color: black;margin-bottom: 1px;padding-bottom: 10px;width: 100%;}
-.usuario-container {display: flex;flex-direction: column;align-items: center;gap: 15px;}
+.usuario-container {display: flex;align-items: center;gap: 15px;}
 .foto-usuario {width: 75px;height: 75px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 40px;font-weight: bold;color: white;cursor: pointer;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);background-color: Green;background-size: cover;background-position: center;}
 .foto-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
 .foto-usuario:active {transform: scale(0.98);}
@@ -34,3 +34,4 @@ nav {width: 100%;background-color: #fff;}
 .btn-grupo img {width: 24px;height: 24px;vertical-align: middle;margin-right: 8px;}
 .div3 {grid-row-start: 4;grid-row-end: 6;}
 .div11, .div12, .div13, .div14, .div15 {grid-row-start: 1;}
+.nombre-usuario {font-size: 16px;color: #2c3e50;font-weight: 600;}
