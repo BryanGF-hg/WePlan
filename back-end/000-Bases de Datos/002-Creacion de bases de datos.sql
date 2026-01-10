@@ -24,6 +24,7 @@ INSERT INTO usuarios (nombre, apellidos, telefono, direccion, correo_electronico
 ('Laura', 'Gómez Díaz', '+34 644 555 666', 'Calle Sierpes 15, Sevilla', 'laura.gomez@email.com', 'España', '12345678'),
 ('Javier', 'Hernández Castro', '+34 655 666 777', 'Calle Preciados 8, Madrid', 'javier.hernandez@email.com', 'España', '12345678');
 
+--Actualizacion de Usuarios para que puedan ver una cosa o otra segun lo indicado por tipo_de_usuario/003-procesalogin.php
 UPDATE usuarios 
 SET TIPO_DE_USUARIO = 'admin'
 WHERE nombre IN ('María', 'Carlos');

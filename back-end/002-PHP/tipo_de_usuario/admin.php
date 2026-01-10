@@ -6,6 +6,8 @@
     	body{display:flex;}
     	nav{background:BurlyWood;color:black;padding:20px;gap:20px;display:flex;flex:1;flex-direction:column;height:max-content;}
     	nav a{background:#FFFFFF;color:black;text-decoration:none;padding:10px;}
+    	a#boton-read,a#boton-logout{padding:14px;margin:8px;} 
+    	
     	main{padding:20px;flex:4;}
      table td{padding:10px;}
      table{border:2px solid #39D0BD;width:100%;}   
@@ -16,14 +18,15 @@
        text-align:center;  font-size:30px;  line-height:40px;  text-decoration:none;  font-weight:bold;}
      .eliminar,.editar{	height:20px;  background:BlanchedAlmond;  border-radius:30px;  color:black;
        line-height:20px;  text-decoration:none; text-align:center;  display:block;  }  
-     #botones{color:;border-radius:30px;display:flex;align-items:center;background:BlanchedAlmond;}
+     #botones{border-radius:30px;display:flex;align-items:center;background:BlanchedAlmond;}
     </style>
   </head>
   <body>
     <?php
+    //Verificador de Usuarios ///////////////////
     session_start();
     if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] !== 'si') {
-    header("Location: 004-login.html");
+    header("Location: ../004-login.php");
     exit();
     }
 
@@ -32,10 +35,11 @@
         // No es admin - mostrar error
         echo '<h1>Acceso Denegado</h1>';
         echo '<p>Solo los administradores pueden acceder a esta página.</p>';
-        echo '<a href="../004-login.html">Volver al inicio</a>';
+        echo '<a href="../004-login.php">Volver al inicio</a>';
         exit();
     }
     ?>
+    
     <?php
         $host = "localhost";$user = "usuario-weplan";$pass = "Usuarioweplan123$";$db   = "WePlanDB";$conexion = new mysqli($host, $user, $pass, $db);
     ?>
@@ -43,8 +47,8 @@
     <nav>
      <div id="botones">
       <h2>admin.php </h2>
-      <a href="./admin/read/leer.php" id="read-btn">Lectura</a>                                 <!-- accion leer (READ) -->
-      <a href="../006-logout.php" class="logout-btn" id="boton-logout">Cerrar Sesión</a>
+      <a href="./admin/read/leer.php" id="boton-read">Lectura</a>                                 <!-- accion leer (READ) -->
+      <a href="../006-logout.php" id="boton-logout">Logout </a>
      </div>
     <?php
       // Listado de las tablas de la base de datos- WePlanDB
@@ -63,7 +67,7 @@
 
          $resultado = $conexion->query("SELECT * FROM ".$_GET['tabla']." LIMIT 1;");    /// Solo quiero un ELEMENTO !!!//////
          if ($resultado && $resultado->num_rows > 0) {
-           echo "<table>";                         // Inicio de tabl
+           echo "<table>";                         // Inicio de tabla
            echo "<tr>";
            $fila = $resultado->fetch_assoc();
            foreach($fila as $clave=>$valor){
