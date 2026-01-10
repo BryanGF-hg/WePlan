@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WePlan</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+ <nav>
+     <div class="div2">
+      <img src="fotos/weplan-high-resolution-logo-grayscale.png" alt="WePlan Logo">
+      <div class="search-container">
+             <input type="text" class="search-box" placeholder="Buscar...">
+      </div>
+            <div class="bottons-container">
+             <button class="boton">
+                 <div class="icono">🏠</div>
+             </button>
+             <button class="boton">
+                 <div class="icono">🧗</div>
+             </button>
+            
+             <button class="boton">
+                 <div class="icono">🔔</div>
+             </button>
+
+              <button class="boton-usuario">
+                A
+              </button>
+             </div>
+     </div>   
+ </nav>
+<main class="notification-page">
+    <div class="notification-header">
+        <h1>Notificaciones</h1>
+        <button class="mark-all-read">Marcar todas como leídas</button>
+    </div>
+    
+    <div class="notification-container">
+        <!-- Notification 1 -->
+        <div class="notification-card">
+            <div class="notification-icon">🔔</div>
+            <div class="notification-content">
+                <h3>Nuevo mensaje</h3>
+                <p>Juan ha comentado en tu plan de senderismo.</p>
+                <span class="notification-time">Hace 2 horas</span>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+        
+        <!-- Notification 2 -->
+        <div class="notification-card">
+            <div class="notification-icon">🧗</div>
+            <div class="notification-content">
+                <h3>Actividad próxima</h3>
+                <p>Tu escalada en La Pedriza está programada para mañana.</p>
+                <span class="notification-time">Hace 5 horas</span>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+        
+        <!-- Notification 3 -->
+        <div class="notification-card unread">
+            <div class="notification-icon">👥</div>
+            <div class="notification-content">
+                <h3>Nueva solicitud</h3>
+                <p>María quiere unirse a tu grupo de ciclismo.</p>
+                <span class="notification-time">Hace 1 día</span>
+            </div>
+            <div class="notification-actions">
+                <button class="accept-btn">Aceptar</button>
+                <button class="decline-btn">Rechazar</button>
+            </div>
+        </div>
+        
+        <!-- Notification 4 -->
+        <div class="notification-card unread">
+            <div class="notification-icon">📅</div>
+            <div class="notification-content">
+                <h3>Recordatorio</h3>
+                <p>Tu reunión de planificación es en 2 días.</p>
+                <span class="notification-time">Hace 2 días</span>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+        
+        <!-- Notification 5 -->
+        <div class="notification-card unread">
+            <div class="notification-icon">⭐</div>
+            <div class="notification-content">
+                <h3>Logro desbloqueado</h3>
+                <p>¡Has completado 10 actividades este mes!</p>
+                <span class="notification-time">Hace 3 días</span>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+    </div>
+</main>
