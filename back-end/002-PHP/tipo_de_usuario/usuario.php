@@ -1,71 +1,107 @@
+<?php
+session_start();
+$conn = new mysqli('localhost', 'usuario-weplan', 'Usuarioweplan123$', 'WePlanDB');
+                                      // Verificador de log-in de usuario
+if (!isset($_SESSION['usuario_id'])) {
+                                      // Redirigir al login si no hay sesión activa
+    header("Location: ../004-login.php"); // Ajusta la ruta CUANDO SE CAMBIE DE DIRECTORIO
+    exit();}
+
+
+//Obtenemos datos del usuario dentro de la tabla "usuario"
+$usuario_id = intval($_SESSION['usuario_id']);
+$sql_usuario = "SELECT nombre, pais FROM usuarios WHERE usuario_id = $usuario_id";
+$resultado_usuario = $conn->query($sql_usuario);
+
+if ($resultado_usuario->num_rows > 0) {
+    $usuario = $resultado_usuario->fetch_assoc();
+    $nombre = $usuario['nombre'];
+    $pais = $usuario['pais'];
+} else {
+    $nombre = "Usuario";
+    $pais = "Desconocido";
+}
+
+//Obtenemos datos de los grupos dentro de la tabla "grupos" para mostraserlo al usuario
+$sql_grupos = "
+    SELECT g.grupo_id, g.nombre AS grupo_nombre, g.descripcion, 
+           COUNT(ug.usuario_id) AS miembros
+    FROM grupos g
+    INNER JOIN usuario_grupo ug ON g.grupo_id = ug.grupo_id
+    WHERE ug.usuario_id = $usuario_id
+    GROUP BY g.grupo_id
+    LIMIT 5
+";
+$resultado_grupos = $conn->query($sql_grupos);
+
+//Obtenemos datos de los grupos dentro de la tabla "eventos" para mostraserlo al usuario
+
+$sql_eventos = "
+    SELECT 
+        e.evento_id,
+        e.titulo,
+        e.fecha_hora,
+        e.lugar,
+        s.nombre AS actividad,
+        s.descripcion AS descripcion_actividad,
+        g.nombre AS grupo_nombre,
+        u.nombre AS creador
+    FROM eventos e
+    LEFT JOIN subcategorias_actividades s ON e.subcategoria_id = s.subcategoria_id
+    LEFT JOIN grupos g ON e.grupo_id = g.grupo_id
+    LEFT JOIN usuarios u ON g.creador_id = u.usuario_id
+    WHERE 1=1
+";
+
+$sql_eventos .= " ORDER BY e.fecha_hora ASC LIMIT 5";
+
+$resultado_eventos = $conn->query($sql_eventos);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WePlan</title>
-    <style>
-body {margin: 10px auto;font-family: Arial, sans-serif;max-width: 1800px;padding: 15px;}
-nav {width: 100%;background-color: #fff;}
-.div2 {display: flex;align-items: center;justify-content: space-between;padding: 10px 20px;}
-.div2 img {height: 90px;width: 230px;}
-.search-container {flex: 1;max-width: 500px;margin: 0 20px;}
-.search-box {width: 100%;padding: 20px;border: 1px solid #ccc;border-radius: 20px;font-size: 17px;}
-.bottons-container {display: flex;align-items: center;gap: 50px;}
-.boton {background-color: white;border: none;border-radius: 50%;width: 60px;height: 60px;display: flex;align-items: center;justify-content: center;cursor: pointer;transition: all 0.3s ease;padding: 8px;}
-.boton:hover {transform: translateY(-3px);box-shadow: 0 4px 8px rgba(0,0,0,0.3);background-color: #f8f9fa;}
-.boton:active {transform: translateY(-1px);}
-.icono {font-size: 24px;color: #2c3e50;}
-.boton-usuario {width: 65px;height: 65px;border-radius: 50%;font-size: 40px;border: none;cursor: pointer;display: flex;align-items: center;justify-content: center;font-weight: bold;color: white;background-color: Green;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
-.boton-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
-.div4 {display: flex;flex-direction: column;align-items: flex-start;padding: 10px;}
-.titulo-inicio {font-size: 18px;font-weight: bold;color: black;margin-bottom: 1px;padding-bottom: 10px;width: 100%;}
-.usuario-container {display: flex;align-items: center;gap: 15px;}
-.foto-usuario {width: 75px;height: 75px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 40px;font-weight: bold;color: white;cursor: pointer;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);background-color: Green;background-size: cover;background-position: center;}
-.foto-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
-.foto-usuario:active {transform: scale(0.98);}
-.con-foto {background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop');}
-.actividades-container {display: grid;grid-template-columns: repeat(5,1fr);gap: 15px;margin: 0 auto;}
-.actividad {background-color: white;border-radius: 12px;overflow: hidden;box-shadow: 0 4px 8px rgba(0,0,0,0.1);transition: all 0.3s ease;display: flex;flex-direction: column;height: 280px;}
-.actividad:hover {transform: translateY(-5px);box-shadow: 0 8px 16px rgba(0,0,0,0.15);}
-.imagen-actividad {height: 180px;width: 100%;overflow: hidden;}
-.imagen-actividad img {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease;}
-.actividad:hover .imagen-actividad img {transform: scale(1.05);}
-.descripcion-actividad {padding: 15px;flex-grow: 1;display: flex;flex-direction: column;justify-content: center;background-color: white;}
-.descripcion-actividad h3 {margin: 0 0 8px 0;font-size: 16px;color: #2c3e50;font-weight: 600;}
-.descripcion-actividad p {margin: 0;font-size: 13px;color: #7f8c8d;line-height: 1.4;}
-.div10 {padding: 1px;margin-top: 16px;}
-.btn-grupo {width: 15%;padding: 18px;background: linear-gradient(to right, #6c757d, #87ceeb);color: white;border: none;border-radius: 10px;font-size: 18px;font-weight: bold;cursor: pointer;transition: all 0.3s;}
-.btn-grupo:hover {background: linear-gradient(to right, #5a6268, #7ec8e3);box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);}
-.btn-grupo:active {transform: translateY(-1px);}
-.btn-grupo img {width: 24px;height: 24px;vertical-align: middle;margin-right: 8px;}
-.div3 {grid-row-start: 4;grid-row-end: 6;}
-.div11, .div12, .div13, .div14, .div15 {grid-row-start: 1;}
-.nombre-usuario {font-size: 16px;color: #2c3e50;font-weight: 600;}    
-    </style>
+    <link rel="icon" type="image/png" href="https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/favicon-weplan.png?raw=true">
+    
+    <link rel="stylesheet" type="text/css" href="./usuario/estilos.css">
 </head>
 <body>
  <nav>
      <div class="div2">
-      <img src="fotos/weplan-high-resolution-logo-grayscale.png" alt="WePlan Logo">
+      <img src="https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/weplan-high-resolution-logo-grayscale.png?raw=true" alt="WePlan Logo">
+      
       <div class="search-container">
              <input type="text" class="search-box" placeholder="Buscar...">
       </div>
+      <!--- A mejorar despues de mejora v0.1.3------->
+      
             <div class="bottons-container">
              <button class="boton">
-                 <div class="icono">🏠</div>
+                 <a class="icono" href="/home.php">🏠</a>
              </button>
+                 <! ----------------------------------- CAMBIAR CUANDO SE COLOQUE EL ARCHIVO EN OTRO LADO ---------------------------------->
              <button class="boton">
-                 <div class="icono">🧗</div>
+                 <a class="icono" href="/actividades.php">🧗</a>
              </button>
-            
+                 <! ----------------------------------- CAMBIAR CUANDO SE COLOQUE EL ARCHIVO EN OTRO LADO ---------------------------------->            
              <button class="boton">
-                 <div class="icono">🔔</div>
+                 <a class="icono" href="/notificaciones.php">🔔</a>
              </button>
-
+                 <! ----------------------------------- CAMBIAR CUANDO SE COLOQUE EL ARCHIVO EN OTRO LADO ---------------------------------->
               <button class="boton-usuario">
-                B
+                 <a style="text-decoration:none; color:inherit;" href="usuario.php">
+
+                         <?php                                               // Mostrar primera letra del nombre en mayúscula
+        echo strtoupper(substr($nombre, 0, 1)); ?>
+                 </a>
               </button>
+              <button class="boton">
+               <a href="../006-logout.php" id="boton-logout">Logout </a>              
+              </button>
+                 <! ----------------------------------- CAMBIAR CUANDO SE COLOQUE EL ARCHIVO EN OTRO LADO ---------------------------------->              
              </div>
      </div>   
  </nav>
@@ -76,138 +112,144 @@ nav {width: 100%;background-color: #fff;}
         
         <div class="usuario-container">
             <div class="foto-usuario" id="fotoUsuario">
-                A
+        <?php                                               // Mostrar primera letra del nombre en mayúscula
+        echo strtoupper(substr($nombre, 0, 1)); ?>
             </div>
-            <div class="nombre-usuario" id="nombreUsuario">aymanmzkk  |  Valencia</div>
+            
+            <div class="nombre-usuario" id="nombreUsuario">
+             <?php                                         // Mostrar nombre y país
+        echo htmlspecialchars($nombre) . " | " . htmlspecialchars($pais)
+             ?>
+            </div>
         </div>
+        
     </div>
     <h3> Tus grupos</h3>
-        <div class="actividades-container"> 
-        <!-- Div5 - grupo 1 -->
-        <div class="actividad div5">
-            <div class="imagen-actividad">
-                <img src="fotos/coffee and chill.jpg" alt="Coffee and Chill">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Coffee and Chill</h3>
-                <p>⭐⭐⭐⭐⭐ 5.0</p>
-                <p>📌 Valencia, Spain</p>
-                <p>👥 67 Members-Public</p>
-            </div>
-        </div>
-
-        <!-- Div6 - grupo 2 -->
-        <div class="actividad div6">
-            <div class="imagen-actividad">
-                <img src="fotos/Football7Valencia.jpg" alt="Football7Valencia">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Football7Valencia</h3>
-                <p>⭐⭐⭐⭐⭐ 5.0</p>
-                <p>📌 Valencia, Spain</p>
-                <p>👥 99 Members-Public</p>
-            </div>
-        </div>
+     <div class="actividades-container"> 
+     <!------------------------------------------------------------------------------------------->
+     <!------------------------ CONTENIDO PHP PARA GENERAR ACTIVIDADES DEL USUARIO --------------->
+     <!------------------------------------------------------------------------------------------->
+    <?php
+    if ($resultado_grupos && $resultado_grupos->num_rows > 0) {
+        // Array de imágenes por tipo de grupo (puedes personalizarlo)
+        $imagenes_grupos = [
+            'Fútbol' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/Football7Valencia.jpg?raw=true',
+            'Café' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/coffee%20and%20chill.jpg?raw=true',
+            'Pádel' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/padel.jpg?raw=true',
+            'Conciertos' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/concierto.jpg?raw=true',
+            'Running' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/running.jpg?raw=true',
+            'Idiomas' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/idiomas.jpg?raw=true'
+        ];
         
-        <!-- Div7 - grupo 3 -->
-        <div class="actividad div7">
-            <div class="imagen-actividad">
-                <img src="fotos/cocinar juntos.jpg" alt="Cocinar Juntos">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Cocinar Juntos</h3>
-                <p>⭐⭐⭐⭐⭐ 5.0</p>
-                <p>📌 Valencia, Spain</p>
-                <p>👥 106 Members-Public</p>
-            </div>
-        </div>
+        $default_image = 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/default-group.jpg?raw=true'; // Cambiar si queremos mas diseño visual
         
-        <!-- Div8 - grupo 4 -->
-        <div class="actividad div8">
-            <div class="imagen-actividad">
-                <img src="fotos/street basketball.jpg" alt="Basketball Lovers">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Basketball Lovers</h3>
-                <p>⭐⭐⭐⭐⭐ 5.0</p>
-                <p>📌 Valencia, Spain</p>
-                <p>👥 17 Members-Public</p>
-            </div>
-        </div>
-        
-        <!-- Div9 - grupo 5 -->
-        <div class="actividad div9">
-            <div class="imagen-actividad">
-                <img src="fotos/pintura.jpg" alt="Pintura Creativa">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Pintura Creativa</h3>
-                <p>⭐⭐⭐⭐⭐ 5.0</p>
-                <p>📌 Valencia, Spain</p>
-                <p>👥 25 Members-Public</p>
-            </div>
-        </div>
-    </div>
+        while($grupo = $resultado_grupos->fetch_assoc()) {
+            // Determinar imagen según el nombre del grupo
+            $imagen = $default_image;
+            foreach($imagenes_grupos as $key => $url) {
+                if (stripos($grupo['grupo_nombre'], $key) !== false) {
+                    $imagen = $url;
+                    break;
+                }
+            }
+            
+            // Mostrar cada grupo
+            echo '<div class="actividad">';
+            echo '  <div class="imagen-actividad">';
+            echo '    <img src="' . $imagen . '" alt="' . htmlspecialchars($grupo['grupo_nombre']) . '">';
+            echo '  </div>';
+            echo '  <div class="descripcion-actividad">';
+            echo '    <h3>' . htmlspecialchars($grupo['grupo_nombre']) . '</h3>';
+            echo '    <p>⭐⭐⭐⭐⭐ 5.0</p>';
+            echo '    <p>📌 ' . htmlspecialchars($pais) . '</p>';
+            echo '    <p>👥 ' . $grupo['miembros'] . ' Miembros - Público</p>';
+            echo '  </div>';
+            echo '</div>';
+        }
+    } else {
+        echo '<p>No perteneces a ningún grupo todavía.</p>';
+    }
+    ?> 
+     </div>
         <!-- Div10 -  btn-grupo -->
      <div class="div10">
         <button class="btn-grupo"><img src="fotos/crear_grupo_emoji.png">Crear Nuevo Grupo</button>
     </div>
+    <div>
     <h3> Tus actividades</h3>
-        <div class="actividades-container"> 
-        <!-- Div11 - Actividad 1 -->
-        <div class="actividad div11">
-            <div class="imagen-actividad">
-                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=300&fit=crop" alt="Senderismo">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Senderismo en Montaña</h3>
-                <p>Ruta de 8km por los senderos naturales. Nivel moderado, apto para principiantes.</p>
-            </div>
-        </div>
-        
-        <!-- Div12 - Actividad 2 -->
-        <div class="actividad div12">
-            <div class="imagen-actividad">
-                <img src="https://images.unsplash.com/photo-1562771379-eafdca7a02f8?w=400&h=300&fit=crop" alt="Yoga">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Clase de Yoga Matutina</h3>
-                <p>Sesiones de yoga para todos los niveles. Enfocado en respiración y flexibilidad.</p>
-            </div>
-        </div>
-        
-        <!-- Div13 - Actividad 3 -->
-        <div class="actividad div13">
-            <div class="imagen-actividad">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w-400&h=300&fit=crop" alt="Cocina">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Taller de Cocina Saludable</h3>
-                <p>Aprende recetas fáciles y nutritivas. Incluye todos los ingredientes necesarios.</p>
-            </div>
-        </div>
-        
-        <!-- Div14 - Actividad 4 -->
-        <div class="actividad div14">
-            <div class="imagen-actividad">
-                <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?w=400&h=300&fit=crop" alt="Bicicleta">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Paseo en Bicicleta</h3>
-                <p>Recorrido urbano de 15km. Alquiler de bicicletas incluido para participantes.</p>
-            </div>
-        </div>
-        
-        <!-- Div15 - Actividad 5 -->
-        <div class="actividad div15">
-            <div class="imagen-actividad">
-                <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&h=300&fit=crop" alt="Pintura">
-            </div>
-            <div class="descripcion-actividad">
-                <h3>Workshop de Pintura</h3>
-                <p>Explora tu creatividad con acuarelas. Materiales incluidos, no se requiere experiencia.</p>
-            </div>
-        </div>
-    </div>   
+     <div class="actividades-container"> 
+        <?php
+        if ($resultado_eventos && $resultado_eventos->num_rows > 0) {
+            // Array de imágenes por tipo de actividad
+            $imagenes_actividades = [
+                'Fútbol' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/Football7Valencia.jpg?raw=true',
+                'Pádel' => 'https://images.unsplash.com/photo-1595435934247-5d33b7f92c70?w=400&h=300&fit=crop',
+                'Running' => 'https://images.unsplash.com/photo-1552674605-db6ffd8facb5?w=400&h=300&fit=crop',
+                'Café' => 'https://github.com/BryanGF-hg/WePlan/blob/main/Front-end/Pagina%20de%20inicio/fotos/coffee%20and%20chill.jpg?raw=true',
+                'Concierto' => 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop',
+                'Idiomas' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
+                'Senderismo' => 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=300&fit=crop',
+                'Yoga' => 'https://images.unsplash.com/photo-1562771379-eafdca7a02f8?w=400&h=300&fit=crop',
+                'Cocina' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
+                'Bicicleta' => 'https://images.unsplash.com/photo-1536922246289-88c42f957773?w=400&h=300&fit=crop',
+                'Pintura' => 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&h=300&fit=crop'
+            ];
+            
+            $default_image = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop';
+            
+            while($evento = $resultado_eventos->fetch_assoc()) {
+                // Determinar imagen según tipo de actividad
+                $imagen = $default_image;
+                $actividad_nombre = $evento['actividad'] ?? $evento['titulo'];
+                
+                foreach($imagenes_actividades as $palabra_clave => $url) {
+                    if (stripos($actividad_nombre, $palabra_clave) !== false || 
+                        stripos($evento['titulo'], $palabra_clave) !== false) {
+                        $imagen = $url;
+                        break;
+                    }
+                }
+                
+                // Formatear fecha
+                $fecha_formateada = date('d/m/Y H:i', strtotime($evento['fecha_hora']));
+                
+                // Mostrar cada actividad
+                echo '<div class="actividad">';
+                echo '  <div class="imagen-actividad">';
+                echo '    <img src="' . $imagen . '" alt="' . htmlspecialchars($evento['titulo']) . '">';
+                echo '  </div>';
+                echo '  <div class="descripcion-actividad">';
+                echo '    <h3>' . htmlspecialchars($evento['titulo']) . '</h3>';
+                
+                if (!empty($evento['actividad'])) {
+                    echo '    <p><strong>Tipo:</strong> ' . htmlspecialchars($evento['actividad']) . '</p>';                }
+                
+                if (!empty($evento['descripcion_actividad'])) {
+                    echo '    <p>' . htmlspecialchars($evento['descripcion_actividad']) . '</p>';
+                } else {
+                    echo '    <p>Actividad organizada por el grupo.</p>';
+                }
+                
+                echo '    <p><strong>📅 Fecha:</strong> ' . $fecha_formateada . '</p>';
+                
+                if (!empty($evento['lugar'])) {
+                    echo '    <p><strong>📍 Lugar:</strong> ' . htmlspecialchars($evento['lugar']) . '</p>';                }
+                
+                if (!empty($evento['grupo_nombre'])) {
+                    echo '    <p><strong>👥 Grupo:</strong> ' . htmlspecialchars($evento['grupo_nombre']) . '</p>';                }
+                
+                echo '  </div>';
+                echo '</div>';
+            }
+        } else {
+            echo '<div class="sin-actividades">';
+            echo '  <p>No tienes actividades próximas.</p>';
+            echo '  <p><a href="actividades.php">Explora actividades disponibles</a></p>';            // Cambiar mas tarde
+            echo '</div>';
+        }
+        ?>
+     </div>   
+<?php $conn->close(); ?>    
 </body>
 </html>
+
