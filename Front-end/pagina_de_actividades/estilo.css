@@ -1,0 +1,13 @@
+body {margin: 10px auto;font-family: Arial, sans-serif;max-width: 1800px;padding: 15px;}
+nav {width: 100%;background-color: #fff;}
+.div2 {display: flex;align-items: center;justify-content: space-between;padding: 10px 20px;}
+.div2 img {height: 90px;width: 230px;}
+.search-container {flex: 1;max-width: 500px;margin: 0 20px;}
+.search-box {width: 100%;padding: 20px;border: 1px solid #ccc;border-radius: 20px;font-size: 17px;}
+.bottons-container {display: flex;align-items: center;gap: 50px;}
+.boton {background-color: white;border: none;border-radius: 50%;width: 60px;height: 60px;display: flex;align-items: center;justify-content: center;cursor: pointer;transition: all 0.3s ease;padding: 8px;}
+.boton:hover {transform: translateY(-3px);box-shadow: 0 4px 8px rgba(0,0,0,0.3);background-color: #f8f9fa;}
+.boton:active {transform: translateY(-1px);}
+.icono {font-size: 24px;color: #2c3e50;}
+.boton-usuario {width: 65px;height: 65px;border-radius: 50%;font-size: 40px;border: none;cursor: pointer;display: flex;align-items: center;justify-content: center;font-weight: bold;color: white;background-color: Green;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
+.boton-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
