@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - WePlan</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+ <nav>
+     <div class="div2">
+      <img src="fotos/weplan-high-resolution-logo-grayscale.png" alt="WePlan Logo">
+      <div class="search-container">
+             <input type="text" class="search-box" placeholder="Buscar...">
+      </div>
+            <div class="bottons-container">
+             <button class="boton" onclick="window.location.href='index.html'">
+                 <div class="icono">🏠</div>
+             </button>
+             <button class="boton">
+                 <div class="icono">🧗</div>
+             </button>
+            
+             <button class="boton" onclick="window.location.href='notificaciones.html'">
+                 <div class="icono">🔔</div>
+             </button>
+
+              <button class="boton-usuario" onclick="window.location.href='cuenta.html'">
+                A
+              </button>
+             </div>
+     </div>   
+ </nav>
+
+<main class="account-page">
+    <div class="account-header">
+        <h1>Mi Cuenta</h1>
+    </div>
+    
+    <div class="account-container">
+        <!-- Sección Perfil -->
+        <div class="profile-section">
+            <div class="profile-picture">
+                <div class="profile-image" id="profileImage">A</div>
+                <button class="change-photo">Cambiar Foto</button>
+            </div>
+            
+            <div class="profile-info">
+                <h2>Información Personal</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Nombre de usuario</label>
+                        <div class="info-value">aymanmzkk</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <div class="info-value">ayman@example.com</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Ubicación</label>
+                        <div class="info-value">Valencia, Spain</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Miembro desde</label>
+                        <div class="info-value">Enero 2024</div>
+                    </div>
+                </div>
+                <button class="edit-btn">Editar Información</button>
+            </div>
+        </div>
+        
+        <!-- Sección Estadísticas -->
+        <div class="stats-section">
+            <h2>Mis Estadísticas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Actividades</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Grupos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">Calificación</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Metas</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección Configuración -->
+        <div class="settings-section">
+            <h2>Configuración</h2>
+            <div class="settings-list">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-icon">🔔</div>
+                        <div>
+                            <h3>Notificaciones</h3>
+                            <p>Gestiona tus preferencias de notificaciones</p>
+                        </div>
+                    </div>
+                    <button class="toggle-btn">Activo</button>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-icon">👁️</div>
+                        <div>
+                            <h3>Privacidad</h3>
+                            <p>Controla quién puede ver tu perfil</p>
+                        </div>
+                    </div>
+                    <button class="toggle-btn">Público</button>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-icon">🔒</div>
+                        <div>
+                            <h3>Seguridad</h3>
+                            <p>Cambia tu contraseña y verificación</p>
+                        </div>
+                    </div>
+                    <button class="manage-btn">Gestionar</button>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-icon">💬</div>
+                        <div>
+                            <h3>Idioma</h3>
+                            <p>Español (España)</p>
+                        </div>
+                    </div>
+                    <button class="change-btn">Cambiar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botones de Acción -->
+        <div class="action-buttons">
+            <button class="logout-btn">Cerrar Sesión</button>
+            <button class="delete-btn">Eliminar Cuenta</button>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
