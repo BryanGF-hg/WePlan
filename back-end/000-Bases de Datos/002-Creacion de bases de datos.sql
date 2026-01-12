@@ -79,18 +79,27 @@ CREATE TABLE subcategorias_actividades (
 
 -- Inserción de subcategorías
 INSERT INTO subcategorias_actividades (categoria_id, nombre) VALUES
+
+-- Inserción de subcategorías con descripción
+INSERT INTO subcategorias_actividades (categoria_id, nombre, descripcion) VALUES
 -- Deporte
-(1, 'Fútbol'), (1, 'Pádel'), (1, 'Baloncesto'), (1, 'Tenis'),
-(1, 'Natación'), (1, 'Running'), (1, 'Ciclismo'), (1, 'Yoga'),
+(1, 'Fútbol', 'Actividad deportiva en equipo con balón'),(1, 'Pádel', 'Deporte de raqueta en pareja'),
+(1, 'Baloncesto', 'Juego en equipo con canastas'),(1, 'Tenis', 'Deporte individual o en pareja con raqueta'),
+(1, 'Natación', 'Actividad acuática para ejercitar todo el cuerpo'),(1, 'Running', 'Carrera al aire libre para mejorar resistencia'),
+(1, 'Ciclismo', 'Deporte sobre bicicleta en carretera o montaña'),(1, 'Yoga', 'Práctica de relajación y estiramiento físico'),
 -- Relajación
-(2, 'Café'), (2, 'Charla'), (2, 'Cena'), (2, 'Paseo'),
-(2, 'Cine'), (2, 'Juegos de mesa'), (2, 'Picnic'),
+(2, 'Café', 'Encuentro informal para conversar'),(2, 'Charla', 'Conversación relajada entre amigos'),
+(2, 'Cena', 'Comida en grupo para socializar'),(2, 'Paseo', 'Caminar al aire libre para relajarse'),
+(2, 'Cine', 'Ver películas en compañía'),(2, 'Juegos de mesa', 'Actividades lúdicas en grupo'),(2, 'Picnic', 'Comida al aire libre en un parque'),
 -- Música
-(3, 'Conciertos'), (3, 'Karaoke'), (3, 'Club de música'),
-(3, 'Taller de instrumentos'), (3, 'Festivales'),
+(3, 'Conciertos', 'Eventos musicales en vivo'),(3, 'Karaoke', 'Cantar canciones en grupo'),
+(3, 'Club de música', 'Reunión para escuchar y compartir música'),(3, 'Taller de instrumentos', 'Aprender a tocar instrumentos musicales'),
+(3, 'Festivales', 'Eventos masivos con música y entretenimiento'),
 -- Educación
-(4, 'Idiomas'), (4, 'Artes'), (4, 'Danza'), (4, 'Cocina'),
-(4, 'Fotografía'), (4, 'Literatura'), (4, 'Teatro');
+(4, 'Idiomas', 'Aprendizaje de nuevas lenguas'),(4, 'Artes', 'Actividades relacionadas con pintura y escultura'),
+(4, 'Danza', 'Aprender y practicar diferentes estilos de baile'),(4, 'Cocina', 'Clases para preparar recetas y técnicas culinarias'),
+(4, 'Fotografía', 'Aprender técnicas para capturar imágenes'),(4, 'Literatura', 'Lectura y análisis de obras literarias'),(4, 'Teatro', 'Interpretación y actuación en obras dramáticas');
+
 
 CREATE TABLE aficiones (
     aficion_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -258,6 +267,33 @@ JOIN grupos g ON e.grupo_id = g.grupo_id
 LEFT JOIN subcategorias_actividades s ON e.subcategoria_id = s.subcategoria_id
 WHERE e.fecha_hora > NOW()
 ORDER BY e.fecha_hora;
+
+-- Vista para todos los eventos
+CREATE VIEW vista_eventos_completa AS
+SELECT 
+    e.evento_id,
+    e.titulo,
+    e.fecha_hora,
+    e.lugar,
+    e.grupo_id,
+    e.subcategoria_id,
+    s.nombre AS actividad,
+    s.descripcion AS descripcion_actividad,
+    s.categoria_id,
+    c.nombre AS categoria,
+    g.nombre AS grupo_nombre,
+    g.descripcion AS grupo_descripcion,
+    g.creador_id,
+    u.nombre AS creador,
+    u.pais AS creador_pais,
+    -- Contar participantes
+    (SELECT COUNT(*) FROM evento_participantes ep WHERE ep.evento_id = e.evento_id) AS participantes
+FROM eventos e
+LEFT JOIN subcategorias_actividades s ON e.subcategoria_id = s.subcategoria_id
+LEFT JOIN categorias_actividades c ON s.categoria_id = c.categoria_id
+LEFT JOIN grupos g ON e.grupo_id = g.grupo_id
+LEFT JOIN usuarios u ON g.creador_id = u.usuario_id;
+
 
 -- Vista para aficiones de usuarios
 CREATE VIEW vista_usuario_aficiones AS

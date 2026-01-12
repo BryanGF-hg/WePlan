@@ -51,11 +51,15 @@
       <a href="../006-logout.php" id="boton-logout">Logout </a>
      </div>
     <?php
-      // Listado de las tablas de la base de datos- WePlanDB
-        $resultado = $conexion->query("SHOW TABLES;");
-        while ($fila = $resultado->fetch_assoc()) {
-          echo '<a href="?tabla='.$fila['Tables_in_'.$db].'">'.$fila['Tables_in_'.$db].'</a>';
+      // Listado de las tablas de la base de datos- WePlanDB    
+      $resultado = $conexion->query("SHOW TABLES;");
+    if ($resultado) {
+         while ($fila = $resultado->fetch_array(MYSQLI_NUM)) {
+        // Usa el index 0 para la primera columna
+        $tableName = $fila[0];
+        echo '<a href="?tabla=' . urlencode($tableName) . '">' . htmlspecialchars($tableName) . '</a>';
         }
+    }
     ?>
     </nav>
     <main>
