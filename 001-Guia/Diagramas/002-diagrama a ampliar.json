@@ -1,0 +1,893 @@
+{
+  "formas": [
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "257.508px",
+      "top": "224.672px",
+      "width": "",
+      "height": "",
+      "texto": "Controles[PHP+PY]"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "456.211px",
+      "top": "225.508px",
+      "width": "",
+      "height": "",
+      "texto": "BBDD[MySQL]"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "657.79px",
+      "top": "251.125px",
+      "width": "",
+      "height": "",
+      "texto": "Vistas"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "text",
+      "left": "688.933px",
+      "top": "291.674px",
+      "width": "",
+      "height": "",
+      "texto": "vista_grupo_con_miembros"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "rectangle",
+      "left": "659.25px",
+      "top": "207.547px",
+      "width": "",
+      "height": "",
+      "texto": "Indices"
+    },
+    {
+      "id": "forma-22",
+      "tipo": "entity",
+      "left": "338.556px",
+      "top": "403.833px",
+      "width": "",
+      "height": "",
+      "entityName": "usuarios",
+      "properties": [
+        {
+          "id": "prop-11",
+          "name": "usuario_id"
+        },
+        {
+          "id": "prop-20",
+          "name": "nombre"
+        },
+        {
+          "id": "prop-21",
+          "name": "apellidos"
+        },
+        {
+          "id": "prop-22",
+          "name": "telefono"
+        },
+        {
+          "id": "prop-23",
+          "name": "direccion"
+        },
+        {
+          "id": "prop-24",
+          "name": "correo_electronico"
+        },
+        {
+          "id": "prop-25",
+          "name": "pais"
+        },
+        {
+          "id": "prop-26",
+          "name": "fecha_registro"
+        }
+      ]
+    },
+    {
+      "id": "forma-25",
+      "tipo": "entity",
+      "left": "505.958px",
+      "top": "634.012px",
+      "width": "",
+      "height": "",
+      "entityName": "eventos",
+      "properties": [
+        {
+          "id": "prop-14",
+          "name": "evento_id"
+        },
+        {
+          "id": "prop-55",
+          "name": "grupo_id"
+        },
+        {
+          "id": "prop-56",
+          "name": "subcategoria_id"
+        },
+        {
+          "id": "prop-57",
+          "name": "titulo"
+        },
+        {
+          "id": "prop-58",
+          "name": "fecha_hora"
+        },
+        {
+          "id": "prop-59",
+          "name": "lugar"
+        },
+        {
+          "id": "prop-60",
+          "name": "FK grupo_id references grupos(id)"
+        },
+        {
+          "id": "prop-61",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "id": "forma-27",
+      "tipo": "entity",
+      "left": "657.832px",
+      "top": "396.113px",
+      "width": "",
+      "height": "",
+      "entityName": "aficiones",
+      "properties": [
+        {
+          "id": "prop-16",
+          "name": "aficion_id"
+        },
+        {
+          "id": "prop-39",
+          "name": "nombre (NOT NULL)"
+        },
+        {
+          "id": "prop-40",
+          "name": "categoria"
+        }
+      ]
+    },
+    {
+      "id": "forma-28",
+      "tipo": "entity",
+      "left": "503.633px",
+      "top": "376.738px",
+      "width": "",
+      "height": "",
+      "entityName": "usuario_aficion",
+      "properties": [
+        {
+          "id": "prop-17",
+          "name": "usuario_id"
+        },
+        {
+          "id": "prop-41",
+          "name": "aficion_id"
+        },
+        {
+          "id": "prop-50",
+          "name": ""
+        },
+        {
+          "id": "prop-51",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "id": "forma-29",
+      "tipo": "entity",
+      "left": "452.912px",
+      "top": "870.453px",
+      "width": "",
+      "height": "",
+      "entityName": "categorias_actividades",
+      "properties": [
+        {
+          "id": "prop-18",
+          "name": "categoria_id"
+        },
+        {
+          "id": "prop-33",
+          "name": "nombre (NOT NULL)"
+        },
+        {
+          "id": "prop-34",
+          "name": "descripcion"
+        }
+      ]
+    },
+    {
+      "id": "forma-30",
+      "tipo": "entity",
+      "left": "337px",
+      "top": "621.25px",
+      "width": "",
+      "height": "",
+      "entityName": "grupos",
+      "properties": [
+        {
+          "id": "prop-19",
+          "name": "grupo_id"
+        },
+        {
+          "id": "prop-27",
+          "name": "nombre"
+        },
+        {
+          "id": "prop-28",
+          "name": "descripcion"
+        },
+        {
+          "id": "prop-29",
+          "name": "creador_id"
+        },
+        {
+          "id": "prop-30",
+          "name": "fecha_creacion"
+        },
+        {
+          "id": "prop-31",
+          "name": "max_miembros (50)"
+        },
+        {
+          "id": "prop-32",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "id": "forma-32",
+      "tipo": "entity",
+      "left": "172.096px",
+      "top": "504.349px",
+      "width": "",
+      "height": "",
+      "entityName": "usuario_grupo",
+      "properties": [
+        {
+          "id": "prop-46",
+          "name": "usuario_id"
+        },
+        {
+          "id": "prop-47",
+          "name": "grupo_id"
+        },
+        {
+          "id": "prop-48",
+          "name": ""
+        },
+        {
+          "id": "prop-49",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "id": "forma-33",
+      "tipo": "entity",
+      "left": "272.406px",
+      "top": "848.088px",
+      "width": "",
+      "height": "",
+      "entityName": "subcategorias_actividades",
+      "properties": [
+        {
+          "id": "prop-65",
+          "name": "subcategoria_id"
+        },
+        {
+          "id": "prop-66",
+          "name": "categoria_id"
+        },
+        {
+          "id": "prop-67",
+          "name": "nombre"
+        },
+        {
+          "id": "prop-68",
+          "name": "descripcion"
+        }
+      ]
+    },
+    {
+      "id": "forma-37",
+      "tipo": "rectangle",
+      "left": "536.875px",
+      "top": "112.312px",
+      "width": "",
+      "height": "",
+      "texto": "[admin.php]"
+    },
+    {
+      "id": "forma-38",
+      "tipo": "rectangle",
+      "left": "408.531px",
+      "top": "12.8516px",
+      "width": "",
+      "height": "",
+      "texto": "[usuario.php]"
+    },
+    {
+      "id": "forma-39",
+      "tipo": "rectangle",
+      "left": "560.625px",
+      "top": "11.3203px",
+      "width": "",
+      "height": "",
+      "texto": "[host.php]"
+    },
+    {
+      "id": "forma-40",
+      "tipo": "rectangle",
+      "left": "651.906px",
+      "top": "73.6016px",
+      "width": "",
+      "height": "",
+      "texto": "Crear"
+    },
+    {
+      "id": "forma-41",
+      "tipo": "rectangle",
+      "left": "460.375px",
+      "top": "60.0625px",
+      "width": "",
+      "height": "",
+      "texto": "Leer"
+    },
+    {
+      "id": "forma-43",
+      "tipo": "rectangle",
+      "left": "653.875px",
+      "top": "147.562px",
+      "width": "",
+      "height": "",
+      "texto": "Eliminar"
+    },
+    {
+      "id": "forma-44",
+      "tipo": "rectangle",
+      "left": "653.539px",
+      "top": "109.219px",
+      "width": "",
+      "height": "",
+      "texto": "Actualizar"
+    },
+    {
+      "id": "forma-45",
+      "tipo": "rectangle",
+      "left": "304.797px",
+      "top": "189.297px",
+      "width": "",
+      "height": "",
+      "texto": "login.php+ logout.php"
+    },
+    {
+      "id": "forma-50",
+      "tipo": "entity",
+      "left": "-1.03127px",
+      "top": "2.08594px",
+      "width": "",
+      "height": "",
+      "entityName": "FRONT-END",
+      "properties": [
+        {
+          "id": "prop-75",
+          "name": "Home"
+        },
+        {
+          "id": "prop-76",
+          "name": "Actividades"
+        },
+        {
+          "id": "prop-77",
+          "name": "Notificaciones"
+        },
+        {
+          "id": "prop-78",
+          "name": "Perfil"
+        }
+      ]
+    },
+    {
+      "id": "forma-51",
+      "tipo": "text",
+      "left": "270.84px",
+      "top": "166.445px",
+      "width": "",
+      "height": "",
+      "texto": "Tipos de Usuarios(usuario,host,admin)"
+    },
+    {
+      "id": "forma-52",
+      "tipo": "text",
+      "left": "693.681px",
+      "top": "313.738px",
+      "width": "",
+      "height": "",
+      "texto": "vista_eventos_proximos"
+    },
+    {
+      "id": "forma-53",
+      "tipo": "text",
+      "left": "689.647px",
+      "top": "335.215px",
+      "width": "",
+      "height": "",
+      "texto": "vista_usuario_aficiones"
+    },
+    {
+      "id": "forma-55",
+      "tipo": "text",
+      "left": "847.346px",
+      "top": "310.218px",
+      "width": "",
+      "height": "",
+      "texto": "  idx_grupos_nombre"
+    },
+    {
+      "id": "forma-56",
+      "tipo": "text",
+      "left": "847.577px",
+      "top": "244.238px",
+      "width": "",
+      "height": "",
+      "texto": "  idx_eventos_fecha"
+    },
+    {
+      "id": "forma-57",
+      "tipo": "text",
+      "left": "858.21px",
+      "top": "290.748px",
+      "width": "",
+      "height": "",
+      "texto": "idx_usuarios_email"
+    },
+    {
+      "id": "forma-58",
+      "tipo": "text",
+      "left": "844.801px",
+      "top": "258.548px",
+      "width": "",
+      "height": "",
+      "texto": "  idx_eventos_grupo"
+    },
+    {
+      "id": "forma-60",
+      "tipo": "text",
+      "left": "854.56px",
+      "top": "275.342px",
+      "width": "",
+      "height": "",
+      "texto": "idx_usuarios_nombre"
+    },
+    {
+      "id": "forma-61",
+      "tipo": "text",
+      "left": "791.582px",
+      "top": "224.434px",
+      "width": "",
+      "height": "",
+      "texto": "-- Indice para busqueda frecuentes--"
+    },
+    {
+      "id": "forma-62",
+      "tipo": "text",
+      "left": "1030.8px",
+      "top": "240.691px",
+      "width": "",
+      "height": "",
+      "texto": "idx_usuarios_grupo_usuario"
+    },
+    {
+      "id": "forma-63",
+      "tipo": "text",
+      "left": "1029.89px",
+      "top": "262.056px",
+      "width": "",
+      "height": "",
+      "texto": "idx_usuarios_grupo_grupo"
+    },
+    {
+      "id": "forma-64",
+      "tipo": "text",
+      "left": "1036.26px",
+      "top": "222.962px",
+      "width": "",
+      "height": "",
+      "texto": "-- Indices para Relaciones --"
+    },
+    {
+      "id": "forma-65",
+      "tipo": "rectangle",
+      "left": "457.93px",
+      "top": "276.289px",
+      "width": "",
+      "height": "",
+      "texto": "Tablas"
+    },
+    {
+      "id": "forma-66",
+      "tipo": "entity",
+      "left": "184.551px",
+      "top": "746.802px",
+      "width": "",
+      "height": "",
+      "entityName": "grupo_subcategorias",
+      "properties": [
+        {
+          "id": "prop-79",
+          "name": "grupo_id"
+        },
+        {
+          "id": "prop-81",
+          "name": "subcategoria_id"
+        }
+      ]
+    },
+    {
+      "id": "forma-68",
+      "tipo": "entity",
+      "left": "507.923px",
+      "top": "531.936px",
+      "width": "",
+      "height": "",
+      "entityName": "evento_participantes",
+      "properties": [
+        {
+          "id": "prop-83",
+          "name": "event_id"
+        },
+        {
+          "id": "prop-84",
+          "name": "usuario_id"
+        }
+      ]
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-7",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-22",
+        "propId": "prop-11",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-30",
+        "propId": "prop-29",
+        "side": "left"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-22",
+        "propId": "prop-11",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-28",
+        "propId": "prop-17",
+        "side": "left"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-27",
+        "propId": "prop-16",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-28",
+        "propId": "prop-41",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-22",
+        "propId": "prop-11",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-32",
+        "propId": "prop-46",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-30",
+        "propId": "prop-19",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-32",
+        "propId": "prop-47",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-29",
+        "propId": "prop-18",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-33",
+        "propId": "prop-66",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-30",
+        "propId": "prop-19",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-25",
+        "propId": "prop-55",
+        "side": "left"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-41",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-38",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-41",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-39",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-40",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-39",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-43",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-37",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-44",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-37",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-37",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-40",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-37",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-41",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-50",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-45",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-51",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-30",
+        "propId": "prop-19",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-66",
+        "propId": "prop-79",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-33",
+        "propId": "prop-65",
+        "side": "left"
+      },
+      "hasta": {
+        "shapeId": "forma-66",
+        "propId": "prop-81",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-33",
+        "propId": "prop-65",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-25",
+        "propId": "prop-56",
+        "side": "left"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-25",
+        "propId": "prop-14",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-68",
+        "propId": "prop-83",
+        "side": "right"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-22",
+        "propId": "prop-11",
+        "side": "right"
+      },
+      "hasta": {
+        "shapeId": "forma-68",
+        "propId": "prop-84",
+        "side": "left"
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
