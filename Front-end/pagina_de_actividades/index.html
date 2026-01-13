@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividades - WePlan</title>
+    <title>Inicio - WePlan</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -11,23 +11,655 @@
      <div class="div2">
       <img src="fotos/weplan-high-resolution-logo-grayscale.png" alt="WePlan Logo">
       <div class="search-container">
-             <input type="text" class="search-box" placeholder="Buscar actividades...">
+             <input type="text" class="search-box" placeholder="Buscar...">
       </div>
             <div class="bottons-container">
-             <button class="boton" onclick="window.location.href='index.html'">
+             <button class="boton">
                  <div class="icono">🏠</div>
              </button>
-             <button class="boton active" onclick="window.location.href='actividades.html'">
+             <button class="boton">
                  <div class="icono">🧗</div>
              </button>
             
-             <button class="boton" onclick="window.location.href='notificaciones.html'">
+             <button class="boton">
                  <div class="icono">🔔</div>
              </button>
 
-              <button class="boton-usuario" onclick="window.location.href='cuenta.html'">
+              <button class="boton-usuario">
                 A
               </button>
              </div>
      </div>   
  </nav>
+    
+    <div class="filtros-container">
+        <h3>Actividades</h3>
+        <div class="botones-filtro">
+            <button class="filtro-btn activo" data-filtro="hoy">Hoy</button>
+            <button class="filtro-btn" data-filtro="manana">Mañana</button>
+            <button class="filtro-btn" data-filtro="fin-semana">Fin de semana</button>
+        </div>
+    </div>
+    
+    <div class="actividades-container"> 
+        <!-- Actividades de HOY -->
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=300&fit=crop" alt="Senderismo">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Senderismo en la Sierra Calderona</h3>
+                <p>Ruta de 8km por los senderos naturales de la Sierra Calderona. Nivel moderado.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>9:00 - 13:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Sierra Calderona, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Aire Libre</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>24/30 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1562771379-eafdca7a02f8?w=400&h=300&fit=crop" alt="Yoga">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Yoga en la Playa de la Malvarrosa</h3>
+                <p>Sesión de yoga al amanecer en la playa. Enfocado en respiración y flexibilidad.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>7:30 - 9:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Playa de la Malvarrosa, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Bienestar • Relajación</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>18/25 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Kárate">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Clase de Kárate para Principiantes</h3>
+                <p>Introducción al kárate tradicional. No se requiere experiencia previa.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>19:00 - 20:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Dojo Valencia Centro</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Artes Marciales • Deporte</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>10/15 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Cocina Saludable">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Cocina Mediterránea Saludable</h3>
+                <p>Aprende recetas tradicionales valencianas con toque saludable.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>18:00 - 20:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Escuela de Cocina Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Cocina • Salud</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>16/20 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1570829460005-c840387bb1ca?w=400&h=300&fit=crop" alt="Pádel">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Torneo de Pádel Amistoso</h3>
+                <p>Torneo de pádel entre aficionados. Nivel intermedio.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>17:00 - 19:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Club de Pádel Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Competición</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>12/16 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Actividades de MAÑANA -->
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Cocina">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Taller de Paella Valenciana</h3>
+                <p>Aprende a preparar la auténtica paella valenciana con chef local.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>11:00 - 14:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Mercado Central, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Cocina • Cultura</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>12/18 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?w=400&h=300&fit=crop" alt="Bicicleta">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Ruta en Bici por el Turia</h3>
+                <p>Recorrido por el Jardín del Turia. Alquiler de bicicletas incluido.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>16:00 - 18:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Jardín del Turia, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Ciudad</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>15/25 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop" alt="Meditación">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Meditación Guiada en los Jardines</h3>
+                <p>Sesión de meditación mindfulness en los Jardines de Monforte.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>8:00 - 9:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Jardines de Monforte, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Bienestar • Mindfulness</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>20/30 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?w=400&h=300&fit=crop" alt="Tenis">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Clases de Tenis para Adultos</h3>
+                <p>Clases grupales de tenis para nivel principiante e intermedio.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>10:00 - 12:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Polideportivo Municipal</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Raqueta</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>8/12 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop" alt="Cata de Vinos">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Cata de Vinos de la Tierra</h3>
+                <p>Degustación de vinos de la región valenciana con enólogo.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>20:00 - 22:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Bodega Valencia Centro</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Gastronomía • Cultura</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>14/20 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Actividades de FIN DE SEMANA -->
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&h=300&fit=crop" alt="Pintura">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Pintura en la Ciudad de las Artes</h3>
+                <p>Workshop de acuarelas con vista a la Ciudad de las Artes y las Ciencias.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Sábado • 10:00 - 13:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Ciudad de las Artes, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Arte • Creatividad</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>8/15 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1490641815614-b45106d6dd04?w=400&h=300&fit=crop" alt="Fotografía">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Tour Fotográfico por el Carmen</h3>
+                <p>Recorrido fotográfico por el Barrio del Carmen, patrimonio histórico.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Domingo • 17:00 - 20:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Barrio del Carmen, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Fotografía • Cultura</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>14/20 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?w=400&h=300&fit=crop" alt="Patinaje">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Patinaje Nocturno en la Playa</h3>
+                <p>Ruta de patinaje por el paseo marítimo al atardecer.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Sábado • 20:00 - 22:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Paseo Marítimo, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Noche</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>22/30 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1511994717241-6c3c5d5a4c0c?w=400&h=300&fit=crop" alt="Surf">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Iniciación al Surf en la Playa</h3>
+                <p>Clases de surf para principiantes en las playas de Valencia.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Domingo • 9:00 - 12:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Playa de la Patacona</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Deportes • Mar</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>10/15 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=400&h=300&fit=crop" alt="Música">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Concierto Acústico en el Parc Central</h3>
+                <p>Concierto acústico de música española en el Parc Central.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Sábado • 19:30 - 21:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Parc Central, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Música • Cultura</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>25/40 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Más actividades adicionales -->
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=300&fit=crop" alt="Baile">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Clase de Salsa y Bachata</h3>
+                <p>Aprende los pasos básicos de salsa y bachata en grupo.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>21:00 - 23:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Academia de Baile Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Baile • Social</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>20/25 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop" alt="Running">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Running por el Antiguo Cauce</h3>
+                <p>Entrenamiento de running en grupo por el Jardín del Turia.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>8:00 - 9:30</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Jardín del Turia, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Running • Fitness</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>18/30 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="fin-semana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400&h=300&fit=crop" alt="Observación Estrellas">
+                <div class="badge-dia fin-semana">Fin de semana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Observación de Estrellas</h3>
+                <p>Observación astronómica en la Albufera con telescopios.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>Sábado • 22:00 - 00:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Parque Natural de la Albufera</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Naturaleza • Ciencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>12/20 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="hoy">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1584467735871-8db9ac8d0916?w=400&h=300&fit=crop" alt="Lectura">
+                <div class="badge-dia hoy">Hoy</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Club de Lectura en Cafetería</h3>
+                <p>Discusión sobre novela contemporánea española.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>18:30 - 20:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Cafetería Literaria, Ruzafa</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Literatura • Cultura</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>8/12 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actividad" data-filtro="manana">
+            <div class="imagen-actividad">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Repostería">
+                <div class="badge-dia manana">Mañana</div>
+            </div>
+            <div class="descripcion-actividad">
+                <h3>Taller de Horchata y Fartons</h3>
+                <p>Aprende a hacer horchata y fartons artesanales.</p>
+                <div class="detalles-actividad">
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📅</span>
+                        <span>17:00 - 19:00</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">📍</span>
+                        <span>Alboraya, Valencia</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">👥</span>
+                        <span>Repostería • Tradición</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-icono">✅</span>
+                        <span>10/15 inscritos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para el filtrado de actividades
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroBtns = document.querySelectorAll('.filtro-btn');
+            const actividades = document.querySelectorAll('.actividad');
+            
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    filtroBtns.forEach(b => b.classList.remove('activo'));
+                    // Agregar clase activa al botón clickeado
+                    this.classList.add('activo');
+                    
+                    const filtro = this.getAttribute('data-filtro');
+                    
+                    // Mostrar/ocultar actividades según el filtro
+                    actividades.forEach(actividad => {
+                        if (filtro === 'todos' || actividad.getAttribute('data-filtro') === filtro) {
+                            actividad.style.display = 'flex';
+                        } else {
+                            actividad.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Inicializar mostrando solo actividades de "hoy"
+            actividades.forEach(actividad => {
+                if (actividad.getAttribute('data-filtro') !== 'hoy') {
+                    actividad.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

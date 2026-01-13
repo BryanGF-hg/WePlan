@@ -11,3 +11,155 @@ nav {width: 100%;background-color: #fff;}
 .icono {font-size: 24px;color: #2c3e50;}
 .boton-usuario {width: 65px;height: 65px;border-radius: 50%;font-size: 40px;border: none;cursor: pointer;display: flex;align-items: center;justify-content: center;font-weight: bold;color: white;background-color: Green;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
 .boton-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
+.div4 {display: flex;flex-direction: column;align-items: flex-start;padding: 10px;}
+.titulo-inicio {font-size: 18px;font-weight: bold;color: black;margin-bottom: 1px;padding-bottom: 10px;width: 100%;}
+.usuario-container {display: flex;align-items: center;gap: 15px;}
+.foto-usuario {width: 75px;height: 75px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 40px;font-weight: bold;color: white;cursor: pointer;transition: all 0.3s ease;box-shadow: 0 4px 8px rgba(0,0,0,0.2);background-color: Green;background-size: cover;background-position: center;}
+.foto-usuario:hover {transform: scale(1.05);box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
+.foto-usuario:active {transform: scale(0.98);}
+.con-foto {background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop');}
+.actividades-container {display: grid;grid-template-columns: repeat(5,1fr);gap: 15px;margin: 0 auto;}
+.actividad {background-color: white;border-radius: 12px;overflow: hidden;box-shadow: 0 4px 8px rgba(0,0,0,0.1);transition: all 0.3s ease;display: flex;flex-direction: column;height: 280px;}
+.actividad:hover {transform: translateY(-5px);box-shadow: 0 8px 16px rgba(0,0,0,0.15);}
+.imagen-actividad {height: 180px;width: 100%;overflow: hidden;}
+.imagen-actividad img {width: 100%;height: 100%;object-fit: cover;transition: transform 0.5s ease;}
+.actividad:hover .imagen-actividad img {transform: scale(1.05);}
+.descripcion-actividad {padding: 15px;flex-grow: 1;display: flex;flex-direction: column;justify-content: center;background-color: white;}
+.descripcion-actividad h3 {margin: 0 0 8px 0;font-size: 16px;color: #2c3e50;font-weight: 600;}
+.descripcion-actividad p {margin: 0;font-size: 13px;color: #7f8c8d;line-height: 1.4;}
+.div10 {padding: 1px;margin-top: 16px;}
+.btn-grupo {width: 15%;padding: 18px;background: linear-gradient(to right, #6c757d, #87ceeb);color: white;border: none;border-radius: 10px;font-size: 18px;font-weight: bold;cursor: pointer;transition: all 0.3s;}
+.btn-grupo:hover {background: linear-gradient(to right, #5a6268, #7ec8e3);box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);}
+.btn-grupo:active {transform: translateY(-1px);}
+.btn-grupo img {width: 24px;height: 24px;vertical-align: middle;margin-right: 8px;}
+.div3 {grid-row-start: 4;grid-row-end: 6;}
+.div11, .div12, .div13, .div14, .div15 {grid-row-start: 1;}
+.nombre-usuario {font-size: 16px;color: #2c3e50;font-weight: 600;}
+/* Filtros container */
+.filtros-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.filtros-container h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.botones-filtro {
+    display: flex;
+    gap: 15px;
+}
+
+.filtro-btn {
+    padding: 10px 25px;
+    border: 2px solid #e0e0e0;
+    background-color: white;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn:hover {
+    border-color: #3498db;
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+.filtro-btn.activo {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: white;
+}
+
+/* Badges para días con colores diferentes */
+.badge-dia {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.badge-dia.hoy {
+    background-color: rgba(231, 76, 60, 0.9); /* Rojo */
+}
+
+.badge-dia.manana {
+    background-color: rgba(52, 152, 219, 0.9); /* Azul */
+}
+
+.badge-dia.fin-semana {
+    background-color: rgba(46, 204, 113, 0.9); /* Verde */
+}
+
+.imagen-actividad {
+    position: relative;
+}
+
+/* Detalles de actividad */
+.detalles-actividad {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.detalle-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #555;
+}
+
+.detalle-item:last-child {
+    margin-bottom: 0;
+}
+
+.detalle-icono {
+    margin-right: 8px;
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Ajuste de altura para actividades */
+.actividad {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.descripcion-actividad h3 {
+    margin: 0 0 10px 0;
+    font-size: 17px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.descripcion-actividad p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #7f8c8d;
+    line-height: 1.4;
+}
+
+/* Grid para actividades */
+.actividades-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+}
