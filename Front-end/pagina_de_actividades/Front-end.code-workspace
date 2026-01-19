@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Front-end",
+			"path": ".."
+		},
+		{
+			"name": "htdocs",
+			"path": "../../../../../../../../xampp/htdocs"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Front-end"
+	}
+}
